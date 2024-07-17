@@ -13,7 +13,7 @@ function _load_functions(): void
 
 _load_functions();
 
-function getComponent( string $file, string $template = "global" ): false|string
+function getSection( string $file, string $template = "global" ): false|string
 {
     $path = get_template_directory() . "/components/{$template}/$file.php";
     if( !file_exists($path) ) return false;
@@ -21,4 +21,27 @@ function getComponent( string $file, string $template = "global" ): false|string
     ob_start();
     require $path;
     return ob_get_clean();
+}
+
+function getComponent( string $file, array $params = [] ): false|string
+{
+    $path = get_template_directory() . "/components/global/$file.php";
+    if( !file_exists($path) ) return false;
+
+    foreach ( $params as $key => $val ) $$key = $val;
+
+    ob_start();
+    require $path;
+    return ob_get_clean();
+}
+
+function getColoredText( string $text, array $params = [] ): string
+{
+    /*
+    foreach ( $params as $key => $val ) {
+        $text = str_replace("{{$key}}", $val, $text);
+    }
+    */
+
+    return $text;
 }

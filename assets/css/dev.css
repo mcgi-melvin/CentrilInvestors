@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+   @apply font-roboto font-bold
+}
+
+.h1 {
+    @apply text-[70px]
+}
+
+.h2 {
+    @apply text-[60px]
+}
+
+.button {
+    @apply relative inline-flex items-center justify-between min-w-[160px] h-[50px] rounded-[25px] px-[20px] py-[15px] font-roboto font-semibold text-[15px];
+}
+
+.button svg {
+    @apply absolute right-[20px];
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover svg {
+    @apply right-[15px]
+}
+
+.button-primary {
+    @apply bg-primary fill-black text-black border-2 border-solid border-primary
+}
+
+.button-white {
+    @apply bg-white fill-secondary text-secondary border-2 border-solid border-white
+}
+
+.overlay::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    @apply absolute top-0 left-0 w-full h-full
+}

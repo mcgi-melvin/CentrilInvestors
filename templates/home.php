@@ -4,7 +4,7 @@
  */
 get_header();
 
-getComponent('hero', 'home');
+echo getSection('hero', 'home');
 
 
 

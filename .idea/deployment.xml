@@ -12,6 +12,7 @@
             <excludedPath local="true" path="$PROJECT_DIR$/package-lock.json" />
             <excludedPath local="true" path="$PROJECT_DIR$/tailwind.config.js" />
             <excludedPath local="true" path="$PROJECT_DIR$/.gitignore" />
+            <excludedPath local="true" path="$PROJECT_DIR$/assets/css/dev.css" />
           </excludedPaths>
         </serverdata>
       </paths>
