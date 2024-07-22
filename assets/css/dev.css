@@ -1,4 +1,15 @@
 @tailwind base;
+
+@layer base {
+    body {
+        @apply overflow-x-hidden
+    }
+
+    img {
+        -webkit-user-drag: none;
+    }
+}
+
 @tailwind components;
 @tailwind utilities;
 
@@ -17,6 +28,27 @@
 
 .h2 {
     @apply text-[60px]
+}
+
+.h3 {
+    @apply text-[40px]
+}
+
+.h4 {
+    @apply text-[30px]
+}
+
+.heading-line {
+    @apply relative
+}
+
+.heading-line::after {
+    @apply content-[""] absolute w-[100px] h-[5px] bg-primary bottom-[-10px] left-0;
+}
+
+.heading-line.line-center::after {
+    @apply left-1/2;
+    transform: translateX(-50%);
 }
 
 .button {
@@ -44,4 +76,20 @@
     content: "";
     background-color: rgba(0, 0, 0, 0.5);
     @apply absolute top-0 left-0 w-full h-full
+}
+
+#global_why_choose .section-item:nth-child(odd) {
+    @apply flex-row-reverse
+}
+
+#home_steps .step-primary {
+    @apply bg-primary
+}
+
+#home_steps .step-secondary {
+    @apply bg-secondary text-white
+}
+
+#home_steps .step-secondary img {
+    filter: brightness(200) invert(1);
 }

@@ -13,9 +13,9 @@ function _load_functions(): void
 
 _load_functions();
 
-function getSection( string $file, string $template = "global" ): false|string
+function getSection( string $file, string $folder = "global" ): false|string
 {
-    $path = get_template_directory() . "/components/{$template}/$file.php";
+    $path = get_template_directory() . "/templates/section/{$folder}/$file.php";
     if( !file_exists($path) ) return false;
 
     ob_start();
@@ -25,7 +25,7 @@ function getSection( string $file, string $template = "global" ): false|string
 
 function getComponent( string $file, array $params = [] ): false|string
 {
-    $path = get_template_directory() . "/components/global/$file.php";
+    $path = get_template_directory() . "/components/$file.php";
     if( !file_exists($path) ) return false;
 
     foreach ( $params as $key => $val ) $$key = $val;
