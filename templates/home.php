@@ -10,4 +10,6 @@ echo getSection('steps', 'home');
 
 echo getSection( 'why-choose' );
 
+echo getSection('testimonials');
+
 get_footer();
