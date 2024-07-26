@@ -217,3 +217,33 @@ header .menu > li:hover .sub-menu {
 #locations .location-item:hover .description {
     max-height: 300px;
 }
+
+#single_blog h1 {
+    font-size: 60px;
+    font-family: Roboto, serif;
+}
+
+#single_blog h2 {
+    font-size: 40px;
+    font-family: Roboto, serif;
+}
+
+#single_blog h3 {
+    font-size: 30px;
+    font-family: Roboto, serif;
+}
+
+#single_blog h4 {
+    font-size: 25px;
+    font-family: Roboto, serif;
+}
+
+#single_blog h5 {
+    font-size: 20px;
+    font-family: Roboto, serif;
+}
+
+#single_blog h6 {
+    font-size: 15px;
+    font-family: Roboto, serif;
+}
