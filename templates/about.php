@@ -3,7 +3,17 @@
  * Template Name: About
  */
 get_header();
-?>
 
+echo getSection( 'banner' );
 
-<?php get_footer(); ?>
+echo getSection( 'intro', 'about' );
+
+echo getSection( 'values', 'about' );
+
+echo getSection( 'testimonials' );
+
+echo getSection( 'team', 'about' );
+
+echo getSection( 'faq' );
+
+get_footer();

@@ -1,5 +1,5 @@
 <?php if( $items = get_field( 'alternate_column_items', 'option' ) ): ?>
-<section id="global_why_choose" class="bg-gray-light py-[100px] px-[50px]">
+<section id="global_why_choose" class="bg-gray-primary py-[100px] px-[50px]">
     <div class="container max-w-[1500px]">
         <?php if( $heading = get_field( 'alternate_column_heading', 'option' ) ): ?>
         <div class="section-heading mb-[80px]">
@@ -15,7 +15,7 @@
                     </div>
                     <div class="item-info w-[40%] max-w-full flex flex-col gap-[60px]">
                         <h4 class="h3 heading-line"><?= $item['heading'] ?></h4>
-                        <div class="description">
+                        <div class="description h4 !font-normal">
                             <?= $item['description'] ?>
                         </div>
                     </div>

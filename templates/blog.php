@@ -3,7 +3,11 @@
  * Template Name: Blog
  */
 get_header();
-?>
 
+echo getSection('banner', 'blog');
 
-<?php get_footer(); ?>
+echo getSection('list', 'blog');
+
+echo getSection('why-sell');
+
+get_footer();

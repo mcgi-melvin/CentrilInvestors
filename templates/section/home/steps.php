@@ -10,12 +10,14 @@
                 if( $i % 2 === 0 ) $bg = "secondary";
                 ?>
                 <div class="step-item w-[500px] step-<?= $bg ?> py-[60px] px-[50px]">
-                    <div class="item-heading flex items-center gap-[30px]">
-                        <img width="70" height="70" src="<?= $step['icon'] ?>" alt="Step Icon"/>
-                        <h3 class="h4"><?= $step['heading'] ?></h3>
-                    </div>
-                    <div class="item-description mt-[30px] h4 !font-normal">
-                        <?= $step['description'] ?>
+                    <div class="flex flex-col gap-[30px]">
+                        <div class="item-heading flex items-center gap-[30px]">
+                            <img width="70" height="70" src="<?= $step['icon'] ?>" alt="Step Icon"/>
+                            <h3 class="h4"><?= $step['heading'] ?></h3>
+                        </div>
+                        <div class="item-description h4 !font-normal">
+                            <?= $step['description'] ?>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>

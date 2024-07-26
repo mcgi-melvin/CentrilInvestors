@@ -3,6 +3,13 @@
  * Template Name: Buyer's
  */
 get_header();
-?>
 
-<?php get_footer(); ?>
+echo getSection('banner', 'buyers');
+
+echo getSection( 'intro', 'buyers' );
+
+echo getSection( 'steps' );
+
+echo getSection( 'testimonials' );
+
+get_footer();

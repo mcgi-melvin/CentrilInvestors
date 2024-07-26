@@ -38,6 +38,10 @@
     @apply text-[30px]
 }
 
+p:not(:last-child) {
+    @apply mb-[20px]
+}
+
 .heading-line {
     @apply relative
 }
@@ -72,14 +76,98 @@
     @apply bg-white fill-secondary text-secondary border-2 border-solid border-white
 }
 
+.overlay,
+.overlay > div {
+    @apply relative;
+}
+
 .overlay::before {
-    content: "";
     background-color: rgba(0, 0, 0, 0.5);
-    @apply absolute top-0 left-0 w-full h-full
+    transition: all 0.3s ease-in-out;
+    @apply content-[""] absolute top-0 left-0 w-full h-full;
+}
+
+.overlay.overlay-dark::before {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+header .menu > li {
+    @apply inline-block
+}
+
+header .menu > li > a {
+    @apply relative block font-roboto font-semibold text-[18px] h-full px-[30px] leading-[120px];
+    transition: all 0.3s ease-in-out;
+}
+
+header .menu > li > a::before {
+    @apply content-[""] absolute top-0 left-0 w-full h-[10px] bg-transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+header .menu > li:not(.menu-btn) > a:hover,
+header .menu > li:not(.menu-btn).current-menu-item > a,
+header .menu > li:not(.menu-btn).current-menu-parent > a {
+    @apply bg-gray-tertiary;
+}
+
+header .menu > li:not(.menu-btn) > a:hover::before,
+header .menu > li:not(.menu-btn).current-menu-item > a::before,
+header .menu > li:not(.menu-btn).current-menu-parent > a::before {
+    @apply bg-primary
+}
+
+header .menu > li.menu-btn > a {
+    @apply bg-primary;
+}
+
+header .menu > li .sub-menu {
+    @apply hidden absolute left-0 w-full
+}
+
+header .menu > li .sub-menu li {
+    @apply w-[calc(100%/7)] min-h-[280px] bg-gray-tertiary
+}
+
+header .menu > li .sub-menu li a {
+    @apply block relative p-[30px] font-roboto font-semibold text-[14px] h-full;
+}
+
+header .menu > li .sub-menu li a::before {
+    @apply content-[""] absolute w-[70px] h-[5px] bg-primary top-[55px] left-[30px];
+}
+
+header .menu > li .sub-menu li:not(:last-child) {
+    border: 1px solid #DFDFDF;
+}
+
+header .menu > li .sub-menu li:hover,
+header .menu > li .sub-menu li.current-menu-item {
+    @apply bg-gray-secondary border-gray-secondary
+}
+
+header .menu > li .sub-menu li a span {
+    @apply block text-[12px] font-sans font-normal mt-[18px]
+}
+
+header .menu > li:hover .sub-menu {
+    @apply flex
+}
+
+#global_testimonials .slick-prev {
+    @apply left-[-75px]
+}
+
+#global_testimonials .slick-next {
+    @apply right-[-75px]
 }
 
 #global_why_choose .section-item:nth-child(odd) {
     @apply flex-row-reverse
+}
+
+#global_steps .step-arrow {
+    clip-path: polygon(50% 100%, 3% 0, 100% 0)
 }
 
 #home_steps .step-primary {
@@ -92,4 +180,40 @@
 
 #home_steps .step-secondary img {
     filter: brightness(200) invert(1);
+}
+
+#about_team .member-item::before {
+    @apply content-[""] absolute w-full h-full top-0 left-0 bg-black opacity-60;
+    transition: all 0.3s ease-in-out;
+}
+
+#about_team .member-item.active::before {
+    @apply opacity-0
+}
+
+#locations .location-item {
+    transition: all 0.3s ease-in-out;
+}
+
+#locations .location-item .heading-line.line-center::after {
+    width: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+#locations .location-item:hover::before {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#locations .location-item:hover .heading-line.line-center::after {
+    width: 100px;
+}
+
+#locations .location-item:hover .description,
+#locations .location-item:hover .button-container {
+    display: flex;
+    transition: all 0.6s ease-in-out;
+}
+
+#locations .location-item:hover .description {
+    max-height: 300px;
 }
