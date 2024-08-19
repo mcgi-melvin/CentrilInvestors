@@ -8,6 +8,21 @@
     img {
         -webkit-user-drag: none;
     }
+
+    label {
+        @apply font-roboto text-[12px]
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    textarea {
+        @apply bg-gray-tertiary w-full h-[50px] px-[25px] py-[14px] rounded-[10px] font-roboto text-[12px]
+    }
+
+    textarea {
+        @apply h-auto
+    }
 }
 
 @tailwind components;
@@ -23,19 +38,27 @@
 }
 
 .h1 {
-    @apply text-[70px]
+    @apply text-[45px] 2xl:text-[70px] xl:text-[65px] lg:text-[60px] md:text-[55px] sm:text-[50px]
 }
 
 .h2 {
-    @apply text-[60px]
+    @apply text-[35px] 2xl:text-[60px] xl:text-[55px] lg:text-[50px] md:text-[45px] sm:text-[40px]
 }
 
 .h3 {
-    @apply text-[40px]
+    @apply text-[20px] 2xl:text-[40px] xl:text-[37px] lg:text-[34px] md:text-[30px] sm:text-[28px]
 }
 
 .h4 {
-    @apply text-[30px]
+    @apply text-[18px] 2xl:text-[30px] xl:text-[28px] lg:text-[24px] md:text-[22px] sm:text-[20px]
+}
+
+.h5 {
+    @apply text-[16px] 2xl:text-[25px] xl:text-[23px] lg:text-[21px] md:text-[19px] sm:text-[17px]
+}
+
+.h6 {
+    @apply text-[15px] 2xl:text-[20px] xl:text-[19px] lg:text-[18px] md:text-[17px] sm:text-[16px]
 }
 
 p:not(:last-child) {
@@ -50,13 +73,21 @@ p:not(:last-child) {
     @apply content-[""] absolute w-[100px] h-[5px] bg-primary bottom-[-10px] left-0;
 }
 
+.heading-line.line-small::after {
+    @apply w-[50px]
+}
+
 .heading-line.line-center::after {
     @apply left-1/2;
     transform: translateX(-50%);
 }
 
+.heading-line.line-white::after {
+    @apply bg-white
+}
+
 .button {
-    @apply relative inline-flex items-center justify-between min-w-[160px] h-[50px] rounded-[25px] px-[20px] py-[15px] font-roboto font-semibold text-[15px];
+    @apply relative inline-flex items-center justify-between min-w-[160px] h-[50px] rounded-[25px] px-[20px] py-[15px] font-roboto font-semibold text-[15px] border-2 border-solid;
 }
 
 .button svg {
@@ -69,7 +100,11 @@ p:not(:last-child) {
 }
 
 .button-primary {
-    @apply bg-primary fill-black text-black border-2 border-solid border-primary
+    @apply bg-primary fill-black text-black border-primary
+}
+
+.button-secondary {
+    @apply bg-secondary fill-white text-white border-secondary
 }
 
 .button-white {
@@ -91,82 +126,147 @@ p:not(:last-child) {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+.card {
+    transition: all 0.3s ease-in-out;
+}
+
+.card .heading-line.line-center::after {
+    width: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover::before {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.card:hover .heading-line.line-center::after {
+    width: 100px;
+}
+
+.card .location-details {
+    transition: all 0.6s ease-in-out;
+}
+
+.card:hover .location-details {
+    @apply max-h-[450px]
+}
+
+.form-field {
+    @apply flex flex-col gap-[5px]
+}
+
+header {
+    @apply 2xl:h-[120px] h-[100px]
+}
+
 header .menu > li {
     @apply inline-block
 }
 
-header .menu > li > a {
-    @apply relative block font-roboto font-semibold text-[18px] h-full px-[30px] leading-[120px];
+header .desktop-menu .menu > li > a {
+    @apply relative block font-roboto font-semibold h-full leading-[100px];
+    @apply sm:px-[15px];
+    @apply md:px-[20px] md:text-[14px];
+    @apply xl:px-[25px] xl:text-[16px];
+    @apply 2xl:leading-[120px] 2xl:px-[30px] 2xl:text-[18px];
     transition: all 0.3s ease-in-out;
 }
 
-header .menu > li > a::before {
+header .desktop-menu .menu > li > a::before {
     @apply content-[""] absolute top-0 left-0 w-full h-[10px] bg-transparent;
     transition: all 0.3s ease-in-out;
 }
 
-header .menu > li:not(.menu-btn) > a:hover,
-header .menu > li:not(.menu-btn).current-menu-item > a,
-header .menu > li:not(.menu-btn).current-menu-parent > a {
+header .desktop-menu .menu > li:not(.menu-btn) > a:hover,
+header .desktop-menu .menu > li:not(.menu-btn).current-menu-item > a,
+header .desktop-menu .menu > li:not(.menu-btn).current-menu-parent > a {
     @apply bg-gray-tertiary;
 }
 
-header .menu > li:not(.menu-btn) > a:hover::before,
-header .menu > li:not(.menu-btn).current-menu-item > a::before,
-header .menu > li:not(.menu-btn).current-menu-parent > a::before {
+header .desktop-menu .menu > li:not(.menu-btn) > a:hover::before,
+header .desktop-menu .menu > li:not(.menu-btn).current-menu-item > a::before,
+header .desktop-menu .menu > li:not(.menu-btn).current-menu-parent > a::before {
     @apply bg-primary
 }
 
-header .menu > li.menu-btn > a {
+header .desktop-menu .menu > li.menu-btn > a {
     @apply bg-primary;
 }
 
-header .menu > li .sub-menu {
+header .desktop-menu .menu > li .sub-menu {
     @apply hidden absolute left-0 w-full
 }
 
-header .menu > li .sub-menu li {
-    @apply w-[calc(100%/7)] min-h-[280px] bg-gray-tertiary
+header .desktop-menu .menu > li .sub-menu li {
+    @apply w-[calc(100%/7)] min-h-[280px] bg-white
 }
 
-header .menu > li .sub-menu li a {
+header .desktop-menu .menu > li .sub-menu li a {
     @apply block relative p-[30px] font-roboto font-semibold text-[14px] h-full;
 }
 
-header .menu > li .sub-menu li a::before {
+header .desktop-menu .menu > li .sub-menu li a::before {
     @apply content-[""] absolute w-[70px] h-[5px] bg-primary top-[55px] left-[30px];
 }
 
-header .menu > li .sub-menu li:not(:last-child) {
+header .desktop-menu .menu > li .sub-menu li {
     border: 1px solid #DFDFDF;
 }
 
-header .menu > li .sub-menu li:hover,
-header .menu > li .sub-menu li.current-menu-item {
+header .desktop-menu .menu > li .sub-menu li:hover,
+header .desktop-menu .menu > li .sub-menu li.current-menu-item {
     @apply bg-gray-secondary border-gray-secondary
 }
 
-header .menu > li .sub-menu li a span {
+header .desktop-menu .menu > li .sub-menu li a span {
     @apply block text-[12px] font-sans font-normal mt-[18px]
 }
 
-header .menu > li:hover .sub-menu {
+header .desktop-menu .menu > li:hover .sub-menu {
     @apply flex
 }
 
+#mobile_menu {
+    @apply text-[20px] text-white font-roboto font-bold
+}
+
+#mobile_menu .menu {
+    @apply flex flex-col gap-[30px]
+}
+
+#mobile_menu .menu li {
+    @apply relative
+}
+
+#mobile_menu .menu li::after {
+    @apply content-[""] absolute bottom-[-10px] left-[50%] w-[50px] h-[5px] bg-transparent -translate-x-1/2
+}
+
+#mobile_menu .menu li.current-menu-item::after {
+    @apply bg-primary
+}
+
+#mobile_menu .sub-menu {
+    @apply hidden
+}
+
+#global_testimonials .slick-arrow {
+    @apply lg:hidden
+}
+
 #global_testimonials .slick-prev {
-    @apply left-[-75px]
+    @apply left-[-50px]
 }
 
 #global_testimonials .slick-next {
-    @apply right-[-75px]
+    @apply right-[-50px]
 }
 
 #global_why_choose .section-item:nth-child(odd) {
-    @apply flex-row-reverse
+    @apply md:flex-row-reverse
 }
 
-#global_steps .step-arrow {
+.step-arrow {
     clip-path: polygon(50% 100%, 3% 0, 100% 0)
 }
 
@@ -191,59 +291,81 @@ header .menu > li:hover .sub-menu {
     @apply opacity-0
 }
 
-#locations .location-item {
+#location_city a svg {
     transition: all 0.3s ease-in-out;
 }
 
-#locations .location-item .heading-line.line-center::after {
-    width: 0;
-    transition: all 0.3s ease-in-out;
+#location_city a:hover svg {
+    transform: translateX(10px);
 }
 
-#locations .location-item:hover::before {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-#locations .location-item:hover .heading-line.line-center::after {
-    width: 100px;
-}
-
-#locations .location-item:hover .description,
-#locations .location-item:hover .button-container {
-    display: flex;
-    transition: all 0.6s ease-in-out;
-}
-
-#locations .location-item:hover .description {
-    max-height: 300px;
+#single_blog h1,
+#single_blog h2,
+#single_blog h3,
+#single_blog h4,
+#single_blog h5,
+#single_blog h6 {
+    @apply font-roboto font-semibold leading-none
 }
 
 #single_blog h1 {
-    font-size: 60px;
-    font-family: Roboto, serif;
+    @apply text-[45px] 2xl:text-[70px] xl:text-[65px] lg:text-[60px] md:text-[55px] sm:text-[50px]
 }
 
 #single_blog h2 {
-    font-size: 40px;
-    font-family: Roboto, serif;
+    @apply text-[35px] 2xl:text-[60px] xl:text-[55px] lg:text-[50px] md:text-[45px] sm:text-[40px]
 }
 
 #single_blog h3 {
-    font-size: 30px;
-    font-family: Roboto, serif;
+    @apply text-[20px] 2xl:text-[40px] xl:text-[37px] lg:text-[34px] md:text-[30px] sm:text-[28px]
 }
 
 #single_blog h4 {
-    font-size: 25px;
-    font-family: Roboto, serif;
+    @apply text-[18px] 2xl:text-[30px] xl:text-[28px] lg:text-[24px] md:text-[22px] sm:text-[20px]
 }
 
 #single_blog h5 {
-    font-size: 20px;
-    font-family: Roboto, serif;
+    @apply text-[16px] 2xl:text-[25px] xl:text-[23px] lg:text-[21px] md:text-[19px] sm:text-[17px]
 }
 
 #single_blog h6 {
-    font-size: 15px;
-    font-family: Roboto, serif;
+    @apply text-[15px] 2xl:text-[20px] xl:text-[19px] lg:text-[18px] md:text-[17px] sm:text-[16px]
+}
+
+#single_blog img,
+#single_blog video {
+    @apply w-full
+}
+
+footer ul {
+    @apply flex flex-col gap-[10px]
+}
+
+footer a {
+    @apply font-sans text-white text-[15px];
+    transition: all 0.3s ease-in-out;
+}
+
+footer a:hover {
+    @apply text-primary;
+}
+
+footer .heading-line::after {
+    @apply sm:left-0 left-[50%] sm:-translate-x-0 -translate-x-1/2
+}
+
+footer .footer-left::before {
+    @apply content-[""] absolute w-full h-[50px] top-[-1px] right-[unset] left-0 bg-[#3A3A3A];
+    @apply lg:w-[50px] lg:h-full lg:top-0 lg:right-[-1px] lg:left-[unset];
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+footer .list-social svg {
+    @apply h-[20px] fill-white;
+}
+
+@media (max-width: 1023px) {
+    footer .footer-left::before {
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
 }

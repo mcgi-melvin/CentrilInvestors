@@ -14,4 +14,6 @@ echo getSection( 'content-right', 'home' );
 
 echo getSection('testimonials');
 
+echo getSection( 'form', 'home' );
+
 get_footer();

@@ -129,5 +129,7 @@ class site_cpt {
     {
         new site_cpt( 'city', 'cities', 'dashicons-admin-site-alt' );
         new site_custom_tax( 'location', 'locations', ['singular' => 'city', 'plural' => 'cities', 'icon' => 'dashicons-admin-site-alt'] );
+
+        new site_cpt('subscriber', 'subscribers', 'dashicons-groups');
     }
     add_action( 'init', 'cpt', 0 );

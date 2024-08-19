@@ -1,7 +1,7 @@
 <section id="home_content_right">
-    <div class="flex">
-        <div class="column-image w-1/2 bg-cover bg-center bg-no-repeat" style="background-image: url(<?= get_field( 'wyst_image' ) ?>)"></div>
-        <div class="column-text w-1/2 bg-gray-secondary py-[80px] px-[70px]">
+    <div class="flex flex-wrap">
+        <div class="column-image lg:w-1/2 w-full min-h-[400px] bg-cover bg-center bg-no-repeat" style="background-image: url(<?= get_field( 'wyst_image' ) ?>)"></div>
+        <div class="column-text lg:w-1/2 w-full bg-gray-secondary py-[80px] lg:px-[70px] px-[30px]">
             <div class="flex flex-col gap-[60px]">
                 <div class="content-head">
                     <?php if( $heading = get_field( 'wyst_heading' ) ): ?>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="content flex flex-col gap-[15px]">
                                     <h4 class="h4 leading-[25px]"><?= $item['heading'] ?></h4>
-                                    <div class="description text-[20px]">
+                                    <div class="description md:text-[20px] sm:text-[18px] text-[16px]">
                                         <?= $item['description'] ?>
                                     </div>
                                 </div>

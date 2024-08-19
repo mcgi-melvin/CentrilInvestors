@@ -22,6 +22,12 @@ if( function_exists('acf_add_options_page') ) {
     ]);
 
     acf_add_options_sub_page([
+        'page_title'    => 'Form Settings',
+        'menu_title'    => 'Form',
+        'parent_slug'   => 'theme-general-settings',
+    ]);
+
+    acf_add_options_sub_page([
         'page_title'    => 'Contact Settings',
         'menu_title'    => 'Contact',
         'parent_slug'   => 'theme-general-settings',
@@ -40,3 +46,24 @@ if( function_exists('acf_add_options_page') ) {
     ]);
 
 }
+
+function acf_load_color_field_choices( $field ) {
+
+    // Reset choices
+    $field['choices'] = [];
+
+    $api_key = get_field( 'api_convert_kit', 'option' );
+    $response = wp_remote_get("https://api.convertkit.com/v3/sequences?api_key=$api_key");
+    $api_response = json_decode( wp_remote_retrieve_body( $response ), true );
+
+    if( !isset( $api_response['courses'] ) ) return $field;
+
+    foreach ( $api_response['courses'] as $data ) {
+        $field['choices'][$data['id']] = $data['name'];
+    }
+
+    // Return the field
+    return $field;
+}
+
+add_filter('acf/load_field/name=convert_kit_sequence', 'acf_load_color_field_choices');

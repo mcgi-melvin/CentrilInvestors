@@ -8,7 +8,7 @@ echo getSection('banner', 'how-works');
 
 echo getSection('steps');
 
-// Get Started Form
+echo getSection( 'form', 'how-works' );
 
 echo getSection( 'free-offer', 'how-works' );
 

@@ -1,7 +1,7 @@
 <section id="about_intro">
-    <div class="flex">
+    <div class="flex flex-wrap">
         <?php if( $content = get_field( 'intro_content_left' ) ): ?>
-        <div class="w-1/2 py-[100px] px-[150px]">
+        <div class="lg:w-1/2 w-full py-[100px] 2xl:px-[150px] lg:px-[100px] px-[30px]">
             <div class="flex flex-col gap-[60px]">
                 <h2 class="h3 heading-line"><?= $content['heading'] ?></h2>
                 <div class="description h4 !font-normal">
@@ -11,7 +11,7 @@
         </div>
         <?php endif; ?>
         <?php if( $content = get_field( 'intro_content_right' ) ): ?>
-        <div class="w-1/2 py-[100px] px-[150px] bg-gray-primary">
+        <div class="lg:w-1/2 w-full py-[100px] 2xl:px-[150px] lg:px-[100px] px-[30px] bg-gray-primary">
             <div class="flex flex-col gap-[60px]">
                 <h2 class="h3 heading-line"><?= $content['heading'] ?></h2>
 

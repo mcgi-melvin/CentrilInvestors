@@ -1,5 +1,5 @@
 <?php if( $team = get_field( 'team_items' ) ): ?>
-<section id="about_team" class="bg-gray-primary py-[70px]">
+<section id="about_team" class="bg-gray-primary py-[70px] px-[30px]">
     <div class="container max-w-[1300px]">
         <div class="flex flex-col gap-[60px]">
             <?php if( $heading = get_field( 'team_heading' ) ): ?>
@@ -13,7 +13,7 @@
                     <?php foreach ( $team as $i => $member ): ?>
                         <a
                             href="javascript:void(0)"
-                            class="member-item item-<?= $i ?> relative block rounded-full w-[255px] h-[255px] overflow-hidden"
+                            class="member-item item-<?= $i ?> relative block rounded-full lg:w-[255px] lg:h-[255px] w-[150px] h-[150px] overflow-hidden"
                             onclick="setMemberActive(<?= $i ?>)"
                         >
                             <img class="w-full h-full object-cover" src="<?= $member['image'] ?>" alt="<?= $member['name'] ?>" />
@@ -26,7 +26,7 @@
                         <div class="info-<?= $i ?> hidden box bg-white rounded-[10px] py-[50px] px-[25px]">
                             <div class="flex flex-col gap-[40px] text-center">
                                 <h4 class="h4 member-name"><?= $member['name'] ?></h4>
-                                <div class="member-description text-[25px]"><?= $member['description'] ?></div>
+                                <div class="member-description xl:text-[25px] lg:text-[20px] sm:text-[18px] text-[16px]"><?= $member['description'] ?></div>
                             </div>
                         </div>
                     <?php endforeach; ?>

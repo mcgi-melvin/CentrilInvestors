@@ -1,13 +1,30 @@
-<section id="blogs" class="py-[100px]">
+<?php
+$query = new WP_Query([
+    'posts_per_page' => -1,
+]);
+if( $query->have_posts() ):
+?>
+<section id="blogs" class="py-[100px] px-[30px] text-center">
     <div class="container max-w-[1500px] w-full">
-        <div class="grid grid-cols-4 gap-5">
-            <?php for( $i = 0; $i < 14; $i++ ): ?>
-                <div class="w-[350px] h-[375px] bg-[#FFFFFF] rounded-[12px] border border-gray-300">
-                    <img src="https://picsum.photos/810" alt="" class="h-[150px] w-[350px] object-cover border-solid rounded-t-[12px]">
-                    <h2 class="font-roboto text-black text-[25px] font-semibold mt-[20px] ml-[21px] mr-[26px]">Blog Title</h2>
-                    <p class="font-sans text-black text-[18px] pt-[15px] pb-[54px] ml-[21px] mr-[26px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            <?php endfor; ?>
+        <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[10px]">
+            <?php
+            while ( $query->have_posts() ) {
+                $query->the_post();
+                echo getComponent('card', [
+                    'image' => get_the_post_thumbnail_url(),
+                    'title' => get_the_title(),
+                    'description' => wp_trim_words( get_the_excerpt(), 20 ),
+                    'button' => [
+                        'title' => 'Read More',
+                        'url' => get_the_permalink(),
+                    ]
+                ]);
+            }
+            ?>
         </div>
     </div>
 </section>
+<?php
+    wp_reset_postdata();
+endif;
+?>

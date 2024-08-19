@@ -1,10 +1,10 @@
 <?php if( $items = get_field( 'testimonials_items', 'option' ) ): ?>
-    <section id="global_testimonials" class="py-[100px]">
+    <section id="global_testimonials" class="py-[100px] px-[30px] overflow-x-hidden">
         <div class="relative container max-w-[1500px] w-full">
             <div class="flex flex-col gap-[50px]">
                 <?php if( $heading = get_field( 'testimonials_heading', 'option' ) ): ?>
                     <div class="section-head text-center">
-                        <h2 class="h4 heading-line line-center"><?= $heading ?></h2>
+                        <h3 class="h3 heading-line line-center"><?= $heading ?></h3>
                     </div>
                 <?php endif; ?>
 
@@ -40,7 +40,22 @@
                 infinite: true,
                 arrows: true,
                 prevArrow:`<button type='button' class='slick-prev pull-left'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg></button>`,
-                nextArrow:`<button type='button' class='slick-next pull-right'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></button>`
+                nextArrow:`<button type='button' class='slick-next pull-right'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></button>`,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 2
+                        }
+                    },
+                ]
             });
         })
     </script>

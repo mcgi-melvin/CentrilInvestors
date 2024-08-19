@@ -12,4 +12,5 @@ function ci_enqueues(): void
 
     wp_enqueue_script('jquery');
     wp_enqueue_script('slick', get_template_directory_uri() . '/assets/js/slick.min.js', ['jquery'], null, true );
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/script.js', ['jquery'], null, true );
 }
