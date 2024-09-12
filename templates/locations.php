@@ -8,6 +8,8 @@ echo getSection('banner');
 
 echo getSection('locations', 'locations');
 
+echo getSection('map', 'locations');
+
 echo getSection( 'why-sell' );
 
 echo getSection('testimonials');

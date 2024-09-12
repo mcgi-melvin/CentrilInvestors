@@ -11,6 +11,11 @@ function ci_enqueues(): void
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css', [], null );
 
     wp_enqueue_script('jquery');
+
+    wp_register_script('klaviyo', "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=UDpRTD", [], null, true );
+    wp_script_add_data("klaviyo", "async", "true");
+    wp_enqueue_script('klaviyo');
+
     wp_enqueue_script('slick', get_template_directory_uri() . '/assets/js/slick.min.js', ['jquery'], null, true );
     wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/script.js', ['jquery'], null, true );
 }

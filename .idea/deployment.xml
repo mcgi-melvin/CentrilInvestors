@@ -13,6 +13,7 @@
             <excludedPath local="true" path="$PROJECT_DIR$/tailwind.config.js" />
             <excludedPath local="true" path="$PROJECT_DIR$/.gitignore" />
             <excludedPath local="true" path="$PROJECT_DIR$/assets/css/dev.css" />
+            <excludedPath local="true" path="$PROJECT_DIR$/components/form-buy-old.php" />
           </excludedPaths>
         </serverdata>
       </paths>

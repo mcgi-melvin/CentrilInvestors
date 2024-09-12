@@ -1,6 +1,5 @@
 <?php
 if( function_exists('acf_add_options_page') ) {
-
     acf_add_options_page([
         'page_title'    => 'Theme General Settings',
         'menu_title'    => 'Theme Settings',
@@ -44,7 +43,6 @@ if( function_exists('acf_add_options_page') ) {
         'menu_title'    => 'Footer',
         'parent_slug'   => 'theme-general-settings',
     ]);
-
 }
 
 function acf_load_color_field_choices( $field ) {
@@ -67,3 +65,11 @@ function acf_load_color_field_choices( $field ) {
 }
 
 add_filter('acf/load_field/name=convert_kit_sequence', 'acf_load_color_field_choices');
+
+
+function my_acf_init(): void
+{
+    acf_update_setting('google_api_key', 'AIzaSyBo9J0OkguRIRBBwFyY3BkSbEDi2Of6OXo');
+}
+
+add_action('acf/init', 'my_acf_init');

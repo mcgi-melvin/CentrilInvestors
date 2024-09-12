@@ -26,6 +26,10 @@
             <input id="email" type="email" placeholder="Enter Email Address" />
         </div>
         <div class="form-field">
+            <label for="subject" class="block">Subject</label>
+            <input id="subject" type="text" placeholder="Enter Subject" />
+        </div>
+        <div class="form-field">
             <label for="message" class="block">Message</label>
             <textarea id="message" placeholder="Write your message" rows="8"></textarea>
         </div>
@@ -69,7 +73,7 @@
         form.on('submit', function (e) {
             e.preventDefault()
 
-            const fields = ['first_name', 'last_name', 'address', 'phone', 'email', 'message', 'form_source', 'integration']
+            const fields = ['first_name', 'last_name', 'address', 'phone', 'email', 'subject', 'message', 'form_source', 'integration']
             const formData = new FormData()
 
             formData.append("action", "form_subscriber_add")

@@ -446,6 +446,10 @@ video {
   display: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -1013,8 +1017,8 @@ textarea {
   width: 30px;
 }
 
-.w-\[490px\] {
-  width: 490px;
+.w-\[40\%\] {
+  width: 40%;
 }
 
 .w-\[50px\] {
@@ -1023,6 +1027,10 @@ textarea {
 
 .w-\[550px\] {
   width: 550px;
+}
+
+.w-\[59\%\] {
+  width: 59%;
 }
 
 .w-\[this-is\\\\\] {
@@ -3591,6 +3599,19 @@ header .desktop-menu .menu > li:hover .sub-menu {
   clip-path: polygon(50% 100%, 3% 0, 100% 0)
 }
 
+.section-form .box form {
+  float: unset !important;
+}
+
+.section-form .box form *::-moz-placeholder {
+  font-family: Roboto, sans-serif !important;
+}
+
+.section-form .box form *,
+.section-form .box form *::placeholder {
+  font-family: Roboto, sans-serif !important;
+}
+
 #home_steps .step-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(248 204 67 / var(--tw-bg-opacity));
@@ -4135,6 +4156,10 @@ footer .list-social svg {
     width: calc(100% - 200px);
   }
 
+  .lg\:w-\[calc\(50\%-\.75rem\)\] {
+    width: calc(50% - .75rem);
+  }
+
   .lg\:max-w-\[140px\] {
     max-width: 140px;
   }
@@ -4189,6 +4214,10 @@ footer .list-social svg {
 
   .xl\:w-\[60\%\] {
     width: 60%;
+  }
+
+  .xl\:w-\[calc\(33\.33\%-\.75rem\)\] {
+    width: calc(33.33% - .75rem);
   }
 
   .xl\:grid-cols-3 {

@@ -1,5 +1,6 @@
 <?php
-function podio_auth() {
+function podio_auth(): PodioClient
+{
     $client_id = get_field( 'podio_client_id', 'option' );
     $client_secret = get_field( 'podio_client_secret', 'option' );
     $app_id = get_field( 'podio_app_id', 'option' );
@@ -8,7 +9,5 @@ function podio_auth() {
     $client = new PodioClient($client_id, $client_secret);
     $client->authenticate_with_app($app_id, $app_token);
 
-
+    return $client;
 }
-
-podio_auth();

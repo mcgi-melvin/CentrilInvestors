@@ -167,8 +167,23 @@ function integrate_klaviyo( $post ) {
     return $req_create_body->data;
 }
 
-function integrate_podio( $post ) {
+function integrate_podio( $post )
+{
+    $client = podio_auth();
+    $app_id = get_field( 'podio_app_id', 'option' );
 
+    return PodioItem::create( $client, $app_id, [
+        "external_id" => "wp_". $post,
+        "fields" => [
+            "title" => get_field( 'first_name', $post ) . " " . get_field( 'last_name', $post ),
+            "address" => get_field( 'address', $post ),
+            "email" => get_field( 'email', $post ),
+            "phone" => [
+                "type" => "main",
+                "value" => get_field( 'phone', $post )
+            ],
+        ]
+    ]);
 }
 
 
